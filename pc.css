@@ -1,21 +1,22 @@
-/* 사용자 설정 부분 */
 :root {
-	   --bgColor: #f0f0f0;   /* 배경 색 */
-	 --mainColor: #777777;   /* 메인 컬러 */
-	--mainColor5: #77777755; /* 공지, 인기글 hover */
-	--mainColor3: #77777733; /* 공지, 인기글 */
-	--mainColor2: #77777722; /* 트게더 메뉴, 게시글 hover */
-	--logoURL: url(https://cdn.discordapp.com/attachments/621208142155350038/621208182085124109/1568177806162.png);
-	--logoWidth: 200px;	 /* 로고 너비 */
-	--before: ""; /* 접속자 수 앞 문구 */
-	--after: "";  /* 접속자 수 뒤 문구 */
+  --bg: url("https://www.toptal.com/designers/subtlepatterns/patterns/sun-pattern.png");
+  --color: #0009;
+  --logoURL: url("https://cdn.discordapp.com/attachments/621208142155350038/621208182085124109/1568177806162.png");
+  --logoWidth: 200px;  /* 로고 너비 */
+  --before: "";  /* 접속자 수 앞 문구 */
+  --after: "";  /* 접속자 수 뒤 문구 */
 }
 
-/* 모든 항목 focus시 아웃라인 제거 */
-*:focus { outline: none !important; }
+* {
+  transition: 0.2s;
+}
+
+*:focus {
+  outline: none !important;
+}
 
 html {
-	background: var(--bgColor);
+  background: var(--bg);
   height: auto;
 }
 
@@ -26,441 +27,495 @@ body {
 a,
 a:hover,
 a:focus {
-	color: var(--mainColor);
-}
-
-
-/*************** header ***************/
-
-header {
-	padding: 0.5em 0 0.5em 0;
+  color: white;
+  text-decoration: none;
 }
 
 /* 트게더 로고 ( 없으면 주석처리 하세요 ) */
 header .row>div:nth-child(1)>a {
-	display: block;
-	width: var(--logoWidth);
-	height: 50px;
-	background: var(--logoURL) no-repeat;
-	background-size: auto 50px;
+  display: block;
+  width: var(--logoWidth);
+  height: 50px;
+  background: var(--logoURL) no-repeat;
+  background-size: auto 50px;
 }
 
 /* 기본 트게더 로고 제거 ( 없으면 주석처리 하세요 ) */
-header .row>div:nth-child(1) > a > img {
-	display: none;
+header .row>div:nth-child(1)>a>img {
+  display: none;
 }
 
-/* 검색 창 */
-header #right-search-form>input[type='text'] {
-	border: 2px solid var(--mainColor);
+header #right-search-form>input[type=text],
+header #right-search-form>input[type=text]::placeholder {
+  color: white !important;
+  text-shadow: 0px 0px 2px #555;
 }
 
-/* 검색 버튼 */
 header #right-search-form>#right-search-btn {
-	color: var(--mainColor);
+  padding-top: 4px;
+  color: white;
+  text-shadow: 0px 0px 5px #555;
 }
 
-/* 상단바 */
-header #header-bar {
-	margin-bottom: 0.5em;
+header #header-bar a.dropdown-toggle,
+header #header-bar #header-top-notice a {
+  color: white;
+  text-shadow: 0px 0px 2px #555;
 }
 
-header #header-bar>.row {
-	border: 2px solid var(--mainColor);
+header #header-bar #header-top-notice strong.notice-badge {
+  background: var(--color);
+  color: #fff;
+  border-radius: 9px;
+  line-height: inherit;
 }
 
-/* 전광판 */ header #header-bar #header-top-notice strong.notice-badge,
-/* 트게더 알림 */ header #header-bar #header-menu-right #userDropdown #notification-badge {
-	background: var(--mainColor);
+header #right-search-form>input[type=text],
+header #header-bar>.row,
+header #header-bar #header-menu-right #userDropdown #notification-badge,
+#main .menu-wrapper,
+#board-info,
+#article-info,
+#article-content-wrapper,
+#article-reply-area,
+#article-neighbor-list,
+#article-list,
+#articleWriteForm {
+  background: var(--color);
 }
 
-
-/*************** main ***************/
-
-/* 트게더 메뉴 */
-#main .menu-wrapper {
-	background: white;
-	border: 2px solid var(--mainColor);
-	width: 180px;
+.form-control {
+  background: transparent;
+  color: white;
+}
+.form-control>option {
+  color: black
 }
 
-#main .menu-wrapper > a {
-	padding: 0.35em 0.5em 0.35em 0.5em;
-	letter-spacing: -0.05em;
+header #right-search-form>input[type=text],
+header #header-bar>.row,
+#main .menu-wrapper,
+#board-info,
+#article-neighbor-list,
+#article-list,
+#article-info,
+#article-content-wrapper,
+#article-reply-area,
+#articleWriteForm,
+.form-control {
+  border: 2px solid white;
+  border-radius: 10px;
+  box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.5), inset 0 0px 0px 1px rgba(255, 255, 255, 0.5), inset 0 1px 8px 1px rgba(0, 0, 0, 0.2);
 }
 
-#main .menu-wrapper > a:hover {
-	background-color: var(--mainColor2);
+#main .menu-wrapper>a {
+  background: transparent;
+  letter-spacing: -0.05em;
+  padding: 0.3em 0.5em 0.3em 0.5em;
+  color: white;
+  text-shadow: 0px 0px 2px #555;
+  border-bottom: none;
 }
 
-#main .menu-wrapper .spacer {
-	background: var(--mainColor);
-	height: 2px;
-}
-
-#main .menu-wrapper>.header {
-	background: var(--mainColor);
+#main .menu-wrapper>a:hover,
+#article-list>.article-list-row:hover {
+  background: #fff1;
 }
 
 #main .menu-wrapper>a>em,
-#main .menu-wrapper>a>i.fa.fa-square {
-	color: var(--mainColor);
+#main .menu-wrapper>a>i.fa.fa-square,
+#main .menu-wrapper>a.more {
+  color: white;
 }
-
-/* 게시글 프레임 */
-#main #main-content>div.frame {
-	background: transparent;
-	border: none;
-}
-
-
-/*************** board ***************/
 
 #board-info {
-	margin: 0;
-	height: auto;
-	background: white;
-	border: 2px solid var(--mainColor);
-	margin-bottom: 0.5em;
+  height: 80px;
 }
 
-#board-info h1 {
-	margin-top: 12px;
-	font-size: 28px;
-	border-bottom: 2px solid var(--mainColor);
-	width: calc(100% - 100px); /* 스트리머 게시판 적용시 */
+#board-info h1>a {
+  color: white;
+  text-shadow: 0px 0px 5px #222;
 }
 
-#board-info h1>a:hover,
-#board-info h1>a:focus {
-	color: var(--mainColor);
-}
-
-#board-info #board-info-bottom a {
-	color: var(--mainColor);
-	font-size: 14px;
-}
-
-#board-info > #board-info-bottom {
-	margin-top: 10px;
-}
-
-#board-info>img,
-#board-info>h1,
-#board-info>#board-info-bottom {
-	float: left!important;
-}
-
-#board-info>img#board-info-profile-img {
-	width: 80px;
-	margin-right: 15px;
-	border: 2px solid var(--mainColor);
-  border-radius: 0;
+#board-info h1>span.badge.badge-success,
+#board-info h1>span.badge.badge-default {
+  background: var(--color);
 }
 
 #board-info #viewers-area #viewers:before {
-	content: var(--before);
-	cursor: text;
+  content: var(--before);
+  cursor: text;
 }
 
 #board-info #viewers-area #viewers:after {
-	content: var(--after);
-	cursor: text;
+  content: var(--after);
+  cursor: text;
 }
 
-
-/*************** article ***************/
-
-.frame>.frame,
-#article-list {
-	background: white;
-	border: 2px solid var(--mainColor);
+#board-info #viewers-area,
+#board-info #board-info-bottom a {
+  color: white;
 }
 
-/* 공지 숨기기 버튼 */
-#article-list #article-option-area {
-	right: 2px;
-	top: 2px;
-}
-
-#article-list #article-option-area> #article-option-area-toggle-btn {
-	background: #eaeaea;
-	width: 34px;
-	height: 34px;
-	border: 2px solid;
-	line-height: inherit;
-}
-
-/* 카테고리 */
-#article-list #article-list-category {
-	background: transparent;
-	border: none;
-	margin-top: 2px;
-	margin-bottom: 2px;
-}
-
-#article-list #article-list-category>a {
-	background: transparent;
-  color: var(--mainColor);
-	position: relative;
-}
-
-#article-list #article-list-category>a::before {
-	top: 0;
-}
-
-#article-list #article-list-category>a::after {
-	bottom: 0;
-}
-
-#article-list #article-list-category>a::before,
-#article-list #article-list-category>a::after {
-	height: 2px;
-	width: 100%;
-	background: var(--mainColor);
-	content: "";
-	position: absolute;
-	left: 0px;
-	transform: scaleX(0);
-}
-
-#article-list #article-list-category>a:hover::before,
-#article-list #article-list-category>a:hover::after {
-	transform: scaleX(1);
-}
-
-/* 게시글 */
-#article-list>.article-list-row {
-	border: none;
-}
-
-#article-list>.article-list-row:hover,
-#article-list>.article-list-row:focus {
-	background-color: var(--mainColor2);
-}
-
-#article-list>.article-list-row.notice {
-	background-color: var(--mainColor3);
-}
-
-#article-list>.article-list-row.notice:hover,
-#article-list>.article-list-row.notice:focus,
-#article-list>.article-list-row.hot:hover,
-#article-list>.article-list-row.hot:focus {
-	background-color: var(--mainColor5);
-}
-
-#article-list>.article-list-row>.item>.list-header {
-	border-left: none;
-}
-
-/* 게시글 추천 수 */
-#article-list>.article-list-row>.item>.list-header>span {
-	background: var(--mainColor);
-}
-
-/* 게시글 추천 수 0 */
-#article-list>.article-list-row>.item>.list-header.v0>span,
-#article-list>.article-list-row>.item>.list-header.v0>span:hover {
-    color: transparent !important;
-    background-color: transparent !important;
-}
-
-/* 게시글 댓글 수 */
-#article-list>.article-list-row>.item>.list-title>small.comment-count {
-	color: var(--mainColor);
-}
-
-/* 로그인한 게시글 작성자 */
-#article-list>.article-list-row>.item>.list-title>.list-writer.logged>span {
-	color: var(--mainColor);
-}
-
-/* 게시글 검색 창 */
-#article-list #boardSearchForm .form-control {
-	border-color: var(--mainColor);
-}
-
-/* 게시글 본문 */
 #article-info {
-	background: white;
-	border: 2px solid var(--mainColor);
-	border-bottom: 1px;
-	margin-top: 0.5em;
+  border-radius: 10px 10px 0 0;
+  border-bottom: 1px solid white;
 }
 
-#article-info>h2 {
-	margin-top: 5px;
-	margin-left: 5px;
-}
-
-#article-info #article-info-writer,
-#article-content-wrapper>.header>#article-time {
-	margin-left: 8px;
-}
-
-#article-content-wrapper>.header>#article-views {
-	margin-right: 8px;
+#article-info>h2,
+#article-info #article-info-writer {
+  color: white;
+  text-shadow: 0px 0px 5px #222;
 }
 
 #article-content-wrapper {
-	padding: 0;
-	background: white;
-	border: 2px solid var(--mainColor);
-	border-bottom: 1px;
+  border-radius: 0 0 10px 10px;
+  border-top: 1px solid white;
 }
 
 #article-content-wrapper>.header {
-	border-top: none;
-	border-bottom: 2px solid var(--mainColor);
-	background: transparent;
+  background: transparent;
+  color: white;
+  border-top: none;
+  text-shadow: 0px 0px 5px #222;
 }
 
-#article-content-wrapper #article-content {
-	margin: 0.5em;
-	border: none;
+#article-content-wrapper #article-content,
+#article-content-wrapper>.vote-area {
+  border: none;
+}
+
+#article-content-wrapper #article-content.fr-view>* {
+  color: white;
+  text-shadow: 0px 0px 5px #222;
 }
 
 #article-content-wrapper>.footer {
-	border-top: 2px solid var(--mainColor);
-  border-bottom: 2px solid var(--mainColor);
-  margin-bottom: 0.5em;
-	background: white;
+  background: transparent;
 }
 
-#article-neighbor-list {
-    border: 2px solid var(--mainColor);
-    background: white;
-}
-
-#article-neighbor-list>div:hover,
-#article-neighbor-list>div:focus {
-	background: linear-gradient(to right, white, var(--mainColor2), white);
-}
-
-#article-neighbor-list>div>a,
-#article-neighbor-list>div>span.indicator,
-#article-neighbor-list>div>span.author {
-	color: var(--mainColor);
-}
-
-/* 댓글 */
 #article-reply-area {
-	padding: 0;
-	background: white;
-	border: 2px solid var(--mainColor);
-  margin-top: 0.5em;
-	margin-bottom: 1em;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 
-#article-reply-area > .header h5 {
-	color: var(--mainColor);
+#article-reply-area>.header h5 {
+  color: white;
+  text-shadow: 0px 0px 5px #222;
 }
 
-#article-reply-area #reply-real-area .reply.active,
-#article-reply-area #reply-best-area .reply.active {
-	background-color: var(--mainColor2);
+#article-reply-area #reply-real-area .reply,
+#article-reply-area #reply-best-area .reply {
+  border-radius: 8px;
+  box-shadow: 1px 1px 10px 0px rgba(0, 0, 0, 0.5), inset 0 0px 0px 1px rgba(255, 255, 255, 0.5), inset 0 1px 8px 1px rgba(0, 0, 0, 0.2);
 }
 
-#article-reply-area #reply-real-area .reply > .reply-header,
-#article-reply-area #reply-best-area .reply > .reply-header {
-	padding: 0.3em 0.5em;
-	background: #fcfcfc;
+#article-reply-area #reply-real-area .reply>.reply-header,
+#article-reply-area #reply-best-area .reply>.reply-header {
+  background: transparent;
+  border-bottom: none;
 }
 
-#article-reply-area #reply-real-area .reply > .reply-header > .reply-writer.logged,
-#article-reply-area #reply-best-area .reply > .reply-header > .reply-writer.logged {
-	color: var(--mainColor);
+#article-reply-area #reply-real-area .reply>.reply-header>.reply-menu>span.time,
+#article-reply-area #reply-real-area .reply>.reply-header>.reply-writer.logged,
+#article-reply-area #reply-best-area .reply>.reply-header>.reply-writer.logged,
+#article-reply-area #reply-real-area .reply>.reply-content>p {
+  color: white;
+  text-shadow: 0px 0px 5px #222;
 }
 
-.fr-toolbar.fr-top {
-	border-top: 3px solid var(--mainColor);
+#articleWriteForm {
+    padding: 0.5em 1em;
+    margin-top: 0.5em;
 }
 
-.fr-toolbar .fr-command.fr-btn,
-.fr-popup .fr-command.fr-btn {
-	color: var(--mainColor);
+.fr-toolbar.fr-ltr.fr-desktop.fr-top.fr-basic.fr-sticky-off {
+  background: transparent;
+  border-top: 3px solid white;
 }
 
+.fr-toolbar.fr-ltr.fr-desktop.fr-top.fr-basic.fr-sticky-off>button:hover,
+.fr-toolbar .fr-btn-wrap>button:hover {
+  background: #fff1;
+}
+
+.fr-toolbar .fr-command.fr-btn i,
+.fr-popup .fr-command.fr-btn i,
+.fr-toolbar .fr-command.fr-btn svg,
+.fr-popup .fr-command.fr-btn svg {
+  color: white;
+  text-shadow: 0px 0px 5px #222;
+}
+
+.fr-command.fr-btn.fr-options,
 .fr-toolbar .fr-command.fr-btn.fr-dropdown::after,
 .fr-popup .fr-command.fr-btn.fr-dropdown::after {
-	border-top: 4px solid var(--mainColor);
+  display: none;
 }
 
-/* 트게더 페이지 */
+.fr-box.fr-basic.fr-top .fr-wrapper {
+  background: transparent;
+}
+
+.fr-box.fr-basic .fr-element {
+  color: #fff;
+  text-shadow: 0px 0px 5px #222;
+}
+
+#article-neighbor-list,
+#article-neighbor-list>div>a,
+#article-neighbor-list>div>span.author {
+  color: white;
+  text-shadow: 0px 0px 5px #222;
+}
+
+#article-neighbor-list>div:hover {
+  background: linear-gradient(to right, transparent, #fff1, #fff1, transparent);
+}
+
+/* 공지 숨기기 버튼 */
+#article-list #article-option-area>#article-option-area-toggle-btn {
+  margin-top: calc(1em - 2px);
+  margin-right: calc(1em - 2px);
+  width: 34px;
+  height: 34px;
+  line-height: inherit;
+  box-shadow: 0 0 2px 0 white, inset 0 0 2px 0 white;
+  background: transparent;
+  color: white;
+  text-shadow: 0px 0px 5px #222;
+  transition: 0.2s;
+  border: none;
+  border-radius: 5px;
+}
+
+#article-list #article-option-area>#article-option-area-toggle-btn:hover {
+  box-shadow: 0 0 0 0 #0007, inset 8em 0em 0 0 #0007;
+  background: #0007;
+  color: white;
+}
+
+#article-list #article-list-category,
+#article-list #article-list-category>a,
+#article-list #article-list-category>a.active,
+#article-list #article-list-category>a:hover {
+  background: transparent;
+}
+
+#article-list #article-list-category {
+  border-top: none;
+}
+
+#article-list>.article-list-row {
+  border-right: none;
+}
+
+#article-list>.article-list-row.active,
+#article-list>.article-list-row.notice {
+  background: #fff2;
+}
+
+#article-list>.article-list-row.active:hover,
+#article-list>.article-list-row.notice:hover {
+  background: #fff3;
+}
+
+#article-list>.article-list-row>.item>.list-header>span {
+  background-color: var(--color);
+}
+
+#article-list>.article-list-row>.item>.list-title>a,
+#article-list>.article-list-row>.item>.list-title>small.comment-count,
+#article-list>.article-list-row>.item>.list-title>.list-writer.logged>span {
+  color: white;
+}
+
+#article-list>.article-list-row>.item>.list-title>.list-writer>span {
+  color: #777;
+}
+
+#article-list>.article-list-row>.item>.list-title>a:visited {
+  color: #aaa !important;
+}
+
+#article-list>.article-list-row.hot>.item>.list-title>a:visited,
+#article-list>.article-list-row.notice>.item>.list-title>a:visited,
+#article-list>.article-list-row.active>.item>.list-title>a:visited {
+  color: white !important;
+}
+
+#article-list>.article-list-row.hot {
+  background: linear-gradient(-60deg, #fff2, #fff2, #fff2, #55ffffaa, #99ff55aa, #ffee55aa, #ff5555aa, #fff2, #fff2, #fff2);
+  background-size: 500% 120%;
+  animation: loop-gradient 5s linear infinite;
+}
+
+@keyframes loop-gradient {
+  0% {
+    background-position: 0%;
+  }
+  100% {
+    background-position: 100%;
+  }
+}
+
+#article-list>.article-list-row>.item>.list-header {
+  border-left: none;
+}
+
+#article-list>.article-list-row>.item>.list-header.v0>span,
+#article-list>.article-list-row:hover>.item>.list-header.v0>span {
+  background: transparent;
+  color: transparent;
+}
+
+#article-list>.article-list-row>.item>.list-time {
+  color: white;
+}
+
+#article-list>.article-list-row>.item>.list-checkbox,
+#article-list>.article-list-row>.item>.list-header,
+#article-list>.article-list-row>.item>.list-category,
+#article-list>.article-list-row>.item>.list-title,
+#article-list>.article-list-row>.item>.list-blocked,
+#article-list>.article-list-row>.item>.list-time {
+  border-bottom: none;
+}
+
+#main .menu-wrapper .spacer {
+  background: white;
+  height: 2px;
+}
+
+#main #main-content>div.frame {
+  background: transparent;
+  border: none;
+}
+
+#main .menu-wrapper>.header {
+  text-shadow: 0px 0px 2px #555;
+  border-radius: 6px 6px 0 0;
+  background: linear-gradient(to top, transparent, #0007);
+}
+
+#main .menu-wrapper a:nth-last-child(1) {
+  border-radius: 0px 0px 6px 6px;
+}
+
+#article-list {
+  padding: 1em 1em 2em;
+}
+
+footer>div.container>span>a {
+  text-shadow: 0px 0px 2px #555;
+}
+
+.opt {
+    color: white;
+}
+
+/* 버튼, 검색 */
+.btn,
+.input-group .form-control {
+  box-shadow: 0 0 2px 0 var(--btcolor), inset 0 0 2px 0 var(--btcolor) !important;
+  color: var(--btcolor) !important;
+  height: 30px !important;
+  background: transparent !important;
+  text-shadow: 0px 0px 5px #222 !important;
+  transition: 0.2s !important;
+  border: none !important;
+  border-radius: 5px !important;
+}
+
+.btn:hover,
+.btn:focus,
+.input-group .form-control:hover,
+.input-group .form-control:focus {
+  box-shadow: var(--transform) !important;
+  background: var(--btbackground) !important;
+  color: white !important;
+}
+
+.btn-outline-success {
+  --btcolor: #88ff88;
+  --transform: 0 0 0 0 #5cb85c, inset 8em 0em 0 0 #5cb85c;
+  --btbackground: #5cb85c;
+
+  height: 32px;
+}
+
+.btn-outline-primary {
+  --btcolor: #44aaff;
+  --transform: 0 0 0 0 #0275d8, inset 8em 0em 0 0 #0275d8;
+  --btbackground: #0275d8;
+
+  height: 32px;
+}
+
+.btn-default.best {
+  --btcolor: #efc839;
+  --transform: 0 0 0 0 #efc839, inset 8em 0em 0 0 #efc839;
+  --btbackground: #efc839;
+}
+
+.input-group .form-control {
+  --btcolor: white;
+  --transform: 0 0 0 0 #0007, inset 25em 0em 0 0 #0007;
+  --btbackground: #0007;
+}
+
+.btn-primary,
+.btn-default,
+.btn.write {
+  --btcolor: white;
+  --transform: 0 0 0 0 #0007, inset 8em 0em 0 0 #0007;
+  --btbackground: #0007;
+}
+
+.btn-danger {
+  --btcolor: #ff6e6e;
+  --transform: 0 0 0 0 #ff6e6e, inset 25em 0em 0 0 #ff6e6e;
+  --btbackground: #ff6e6e;
+}
+
+.btn-info {
+  --btcolor: #5bc0de;
+  --transform: 0 0 0 0 #5bc0de, inset 25em 0em 0 0 #5bc0de;
+  --btbackground: #5bc0de;
+}
+
+/* 페이지 */
 .pagination>.active>a,
 .pagination>.active>a:focus,
 .pagination>.active>span,
 .pagination>.active>span:focus {
-	background-color: var(--mainColor);
-	border-color: var(--mainColor);
+  box-shadow: 0 0 2px 0 white, inset 0 0 2px 0 white;
+  background: white;
+  color: black;
+  text-shadow: 0px 0px 2px #555;
+  transition: 0.2s;
+  border: none;
+  border-radius: 5px;
 }
+
 .pagination>.active>a:hover,
 .pagination>.active>span:hover,
 .pagination>li>a:hover,
 .pagination>li>span:hover {
-	background-color: white;
-	border-color: var(--mainColor);
-	color: var(--mainColor);
+  box-shadow: 0 0 0 0 #0007, inset 8em 0em 0 0 #0007;
+  background: #0007;
+  color: white;
 }
+
 .pagination>li>a,
 .pagination>li>a:focus,
-.pagination>li>span
-.pagination>li>span:focus {
-	color: var(--mainColor);
-	background: transparent;
-}
-
-/* 드롭다운 */
-.dropdown.open .dropdown-menu,
-.input-group-btn.open .dropdown-menu {
-	border: 2px solid var(--mainColor);
-	box-shadow: 0 2px 2px rgba(0, 0, 0, 0.275);
-}
-
-.dropdown .dropdown-menu,
-.input-group-btn .dropdown-menu {
-	padding: 8px 0 3px 0px;
-}
-
-.dropdown-menu>li>a:hover {
-	background: transparent;
-}
-
-#latestDropdownMenu>li>a>span.delrow,
-#favoriteDropdownMenu>li>a>span.delrow {
-	color: var(--mainColor);
-}
-
-#latestDropdownMenu>li>a>span.delrow:hover,
-#favoriteDropdownMenu>li>a>span.delrow:hover {
-	background: transparent;
-}
-
-#favoriteDropdownMenu>li>a>span.label.label-default {
-	background-color: var(--mainColor);
-}
-
-.dropdown-menu .divider {
-	background-color: var(--mainColor);
-	height: 2px;
-	margin: 3px 0;
-}
-
-/* 버튼 */
-.btn {
-	color: #fff !important;
-	background-color: var(--mainColor) !important;
-	border-color: var(--mainColor) !important;
-  border-radius: 0;
-}
-
-.btn:hover,
-.btn:focus {
-	color: var(--mainColor) !important;
-	background-color: #fff !important;
-}
-
-.btn.square {
-	margin-right: -2px;
+.pagination>li>span .pagination>li>span:focus {
+  box-shadow: 0 0 2px 0 white, inset 0 0 2px 0 white;
+  background: transparent;
+  color: white;
+  text-shadow: 0px 0px 5px #222;
+  transition: 0.2s;
+  border: none;
+  border-radius: 5px;
+  margin-left: 3px;
 }
